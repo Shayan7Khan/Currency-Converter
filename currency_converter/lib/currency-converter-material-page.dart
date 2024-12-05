@@ -5,70 +5,86 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final border = OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black,
-                      width: 2.0,
-                      style: BorderStyle.solid,
-                      strokeAlign: BorderSide.strokeAlignOutside,
-                    ),
-                    borderRadius: BorderRadius.circular(5));
+        borderSide: const BorderSide(
+          color: Colors.black,
+          width: 2.0,
+          style: BorderStyle.solid,
+          strokeAlign: BorderSide.strokeAlignOutside,
+        ),
+        borderRadius: BorderRadius.circular(5));
 
-
-    return  Scaffold(
-      backgroundColor:const  Color.fromARGB(255, 48, 94, 117),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 48, 94, 117),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //TEXT/OUPUT
-             const Text('0', style:
-             TextStyle(
-              fontSize: 45,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 255, 255, 255)
-              ),
-              ),
+            const Text(
+              '0',
+              style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 255, 255, 255)),
+            ),
 
-              //INPUT PLACEHOLDER
+            //INPUT PLACEHOLDER
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextField(
-                style: const TextStyle(
-                  color: Colors.black
-                ),
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  hintText:'Please Enter The Amount In USD', hintStyle: const TextStyle(
-                    color: Colors.black
-                    ),
-                    prefixIcon: const Icon(Icons.monetization_on_outlined),
-                    prefixIconColor: Colors.black,
-                    //filled give us the placeholder
-                    filled: true,
-                    //fillcolor gives the color to the placeholder
-                    fillColor: Colors.white,
-                    //focusedborder is for the border which we can style give colors etc
-                    focusedBorder: border,
-                    enabledBorder: border,
-                    ),
-                    keyboardType: const TextInputType.numberWithOptions(
-                      decimal: true,
-                    ),
+                  hintText: 'Please Enter The Amount In USD',
+                  hintStyle: const TextStyle(color: Colors.black),
+                  prefixIcon: const Icon(Icons.monetization_on_outlined),
+                  prefixIconColor: Colors.black,
+                  //filled give us the placeholder
+                  filled: true,
+                  //fillcolor gives the color to the placeholder
+                  fillColor: Colors.white,
+                  //focusedborder is for the border which we can style give colors etc
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
               ),
             ),
 
             //BUTTON
-            TextButton(onPressed: (){
-              debugPrint('Button Clicked');
-            },
-            style: const ButtonStyle(
-              backgroundColor:WidgetStatePropertyAll(Colors.black),
-              foregroundColor: WidgetStatePropertyAll(Colors.white)
-            ),
-             child: const Text('Convert'),
-             
-             )
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextButton(
+                onPressed: () {
+                  debugPrint('Button Clicked');
+                },
+                //in style we are using button style and then using WidgetStateProperty to use certain properties like color shape etc, instead we can use Textbutton.styleFrom which gives us direct access to these properties, for the reason I am commenting what i did so that i know the alternative and i will use the easiest one.
+                // style: ButtonStyle(
+                //   backgroundColor: const WidgetStatePropertyAll(Colors.black),
+                //   foregroundColor: const WidgetStatePropertyAll(Colors.white),
+                //   minimumSize: const WidgetStatePropertyAll(
+                //     Size(double.infinity, 50),
+                //   ),
+                //   shape: WidgetStatePropertyAll(
+                //     RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10),
+                //     ),
+                //   ),
+                // ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+
+                child: const Text('Convert'),
+              ),
+            )
           ],
         ),
       ),
