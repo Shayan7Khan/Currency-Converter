@@ -76,6 +76,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
+                    //no matter what the device or screensize is, its gonna be fixed so we will use minimum size
+                //therefore we used double.infinity which means taking maximum amount of space as possible
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -91,3 +93,4 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
     );
   }
 }
+//commit from pc
