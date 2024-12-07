@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 //stateless widget is immutable meaning it cannot be changed.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,9 +19,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
+//this is for cupertino, inorder to call it we just have to call this in our main function.
 class MyCupertinoApp extends StatelessWidget {
   const MyCupertinoApp({super.key});
 

@@ -27,6 +27,14 @@ class _CurenncyConverterMaterialPageState
     });
   }
 
+//dispose actually disposes (in this case the textcontroller) after its used to avoid memory leaks
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    //super.dispose disposes everything that is present in the state class.
+    super.dispose();
+  }
+
   //if we want to get a value before the build function is called, because we want to display it. So for that reason we have a method given by state class which is "initState()"
   // @override
   // void initState() {
