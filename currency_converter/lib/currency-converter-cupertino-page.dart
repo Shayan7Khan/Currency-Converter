@@ -81,22 +81,7 @@ class _CurrencyConverterCupertinoPageState
               ),
               CupertinoButton(
                 onPressed: convert,
-
-                //in style we are using button style and then using WidgetStateProperty to use certain properties like color shape etc, instead we can use Textbutton.styleFrom which gives us direct access to these properties, for the reason I am commenting what i did so that i know the alternative and i will use the easiest one.
-                // style: ButtonStyle(
-                //   backgroundColor: const WidgetStatePropertyAll(Colors.black),
-                //   foregroundColor: const WidgetStatePropertyAll(Colors.white),
-                //   minimumSize: const WidgetStatePropertyAll(
-                //     Size(double.infinity, 50),
-                //   ),
-                //   shape: WidgetStatePropertyAll(
-                //     RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(10),
-                //     ),
-                //   ),
-                // ),
                 color: CupertinoColors.black,
-
                 child: const Text('Convert'),
               )
             ],
