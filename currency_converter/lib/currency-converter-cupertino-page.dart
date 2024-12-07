@@ -1,16 +1,16 @@
-//importing material.dart to import widgets related to Material desing / for Android
-import 'package:flutter/material.dart';
+//importing cupertino.dart to import widgets related to cupertino desing / For IPHONE
+import 'package:flutter/cupertino.dart';
 
-class CurenncyConverterMaterialPage extends StatefulWidget {
-  const CurenncyConverterMaterialPage({super.key});
+class CurrencyConverterCupertinoPage extends StatefulWidget {
+  const CurrencyConverterCupertinoPage({super.key});
 
   @override
-  State<CurenncyConverterMaterialPage> createState() =>
-      _CurenncyConverterMaterialPageState();
+  State<CurrencyConverterCupertinoPage> createState() =>
+      _CurrencyConverterCupertinoPageState();
 }
 
-class _CurenncyConverterMaterialPageState
-    extends State<CurenncyConverterMaterialPage> {
+class _CurrencyConverterCupertinoPageState
+    extends State<CurrencyConverterCupertinoPage> {
   //creating a variable to store the value
   double result = 0;
 
@@ -27,39 +27,21 @@ class _CurenncyConverterMaterialPageState
     });
   }
 
-  //if we want to get a value before the build function is called, because we want to display it. So for that reason we have a method given by state class which is "initState()"
-  // @override
-  // void initState() {
-  //   //super.initState calls the initstate of the parent class
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
-    print('build rebuilt');
-
-    final border = OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: Colors.black,
-          width: 2.0,
-          style: BorderStyle.solid,
-          strokeAlign: BorderSide.strokeAlignOutside,
-        ),
-        borderRadius: BorderRadius.circular(5));
-
-    return Scaffold(
+    return CupertinoPageScaffold(
       backgroundColor: const Color.fromARGB(255, 48, 94, 117),
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 48, 94, 117),
-        title: const Text(
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor: Color.fromARGB(255, 48, 94, 117),
+        middle: Text(
           'Currency Converter',
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true,
       ),
-      body: Center(
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -78,22 +60,15 @@ class _CurenncyConverterMaterialPageState
               ),
 
               //INPUT PLACEHOLDER
-              TextField(
+              CupertinoTextField(
                 controller: textEditingController,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: 'Please Enter The Amount In USD',
-                  hintStyle: const TextStyle(color: Colors.black),
-                  prefixIcon: const Icon(Icons.monetization_on_outlined),
-                  prefixIconColor: Colors.black,
-                  //filled give us the placeholder
-                  filled: true,
-                  //fillcolor gives the color to the placeholder
-                  fillColor: Colors.white,
-                  //focusedborder is for the border which we can style give colors etc
-                  focusedBorder: border,
-                  enabledBorder: border,
-                ),
+                placeholder: 'Please Enter The Amount In USD',
+                prefix: const Icon(CupertinoIcons.money_dollar_circle),
+                style: const TextStyle(color: CupertinoColors.black),
+                decoration: BoxDecoration(
+                    border: Border.all(),
+                    color: CupertinoColors.white,
+                    borderRadius: BorderRadius.circular(5)),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
@@ -104,7 +79,7 @@ class _CurenncyConverterMaterialPageState
               const SizedBox(
                 height: 10,
               ),
-              TextButton(
+              CupertinoButton(
                 onPressed: convert,
 
                 //in style we are using button style and then using WidgetStateProperty to use certain properties like color shape etc, instead we can use Textbutton.styleFrom which gives us direct access to these properties, for the reason I am commenting what i did so that i know the alternative and i will use the easiest one.
@@ -120,16 +95,7 @@ class _CurenncyConverterMaterialPageState
                 //     ),
                 //   ),
                 // ),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  //no matter what the device or screensize is, its gonna be fixed so we will use minimum size
-                  //therefore we used double.infinity which means taking maximum amount of space as possible
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
+                color: CupertinoColors.black,
 
                 child: const Text('Convert'),
               )
